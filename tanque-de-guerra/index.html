@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Tanque de Guerra - Movimento e Disparo</title>
+
+   <!--
+      ===========================================================
+      ATIVIDADE: Desenvolvimento de Jogos Digitais
+      TEMA ESCOLHIDO: Tanque de guerra
+
+      Baseado no exercício do professor (herói que anda e atira).
+      A lógica original foi mantida; a identidade visual foi
+      totalmente refeita. Veja a descrição completa em LEIA-ME.txt.
+
+      COMANDOS:
+        - Seta ESQUERDA .... move o tanque para a esquerda
+        - Seta DIREITA ..... move o tanque para a direita
+        - BARRA DE ESPAÇO .. dispara (o tiro segue a direção do tanque)
+      ===========================================================
+   -->
+
+   <link rel="stylesheet" href="css/estilo.css">
+
+   <!-- Classes do jogo (mesma organização do projeto original) -->
+   <script src="js/teclado.js"></script>
+   <script src="js/animacao.js"></script>
+   <script src="js/cenario.js"></script>
+   <script src="js/projetil.js"></script>
+   <script src="js/tanque.js"></script>
+</head>
+
+<body>
+
+   <div class="titulo">
+      <h1>Tanque de Guerra</h1>
+      <p>Movimente-se pelo campo de batalha e dispare com o canhão</p>
+   </div>
+
+   <div class="moldura">
+      <canvas id="campoDeBatalha" width="900" height="480"></canvas>
+   </div>
+
+   <div class="comandos">
+      <div class="item"><span class="tecla">&#8592;</span> Mover para a esquerda</div>
+      <div class="item"><span class="tecla">&#8594;</span> Mover para a direita</div>
+      <div class="item"><span class="tecla">Espaço</span> Disparar</div>
+   </div>
+
+   <div class="rodape">
+      Atividade de Desenvolvimento de Jogos Digitais &middot; tema: tanque de guerra
+   </div>
+
+   <script>
+      // Referências do canvas
+      var canvas  = document.getElementById('campoDeBatalha');
+      var context = canvas.getContext('2d');
+
+      // Controlador de teclado e laço de animação
+      var teclado  = new Teclado(document);
+      var animacao = new Animacao(context);
+
+      // Cenário de fundo (desenhado antes dos demais sprites)
+      var cenario = new Cenario(context);
+      animacao.novoSprite(cenario);
+
+      // Tanque (o "herói" do exercício)
+      var tanque = new Tanque(context, teclado, animacao);
+      tanque.x = 60;                              // posição inicial personalizada
+      tanque.y = cenario.chaoY - 50;              // apoiado sobre o solo
+      animacao.novoSprite(tanque);
+
+      // Barra de espaço realiza o disparo
+      teclado.disparou(ESPACO, function() {
+         tanque.atirar();
+      });
+
+      // Liga a animação
+      animacao.ligar();
+   </script>
+
+</body>
+
+</html>

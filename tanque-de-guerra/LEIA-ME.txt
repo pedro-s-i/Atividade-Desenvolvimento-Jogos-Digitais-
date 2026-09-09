@@ -1,0 +1,82 @@
+========================================================================
+ ATIVIDADE - DESENVOLVIMENTO DE JOGOS DIGITAIS
+ Personagem que se movimenta e atira (versao personalizada)
+========================================================================
+
+COMO EXECUTAR
+------------------------------------------------------------------------
+Basta abrir o arquivo "index.html" em qualquer navegador moderno
+(Google Chrome, Firefox, Edge, etc.). Nao e necessario instalar nada
+nem usar servidor. Clique na tela do jogo uma vez, se preciso, para
+garantir que o teclado esteja em foco.
+
+
+TEMA ESCOLHIDO
+------------------------------------------------------------------------
+Tanque de guerra.
+
+O retangulo preto do exercicio original foi substituido por um tanque
+desenhado no proprio canvas (esteiras com rodas, casco, torre, escotilha
+e canhao). O canhao aponta para o lado em que o tanque esta virado, e o
+disparo e um projetil de artilharia (obus) com rastro luminoso. O cenario
+de fundo mostra um campo de batalha (ceu com sol, nuvens que se movem,
+colinas ao fundo e solo de deserto com pedras e tufos de mato).
+
+
+COMANDOS UTILIZADOS
+------------------------------------------------------------------------
+  Seta ESQUERDA  ->  move o tanque para a esquerda
+  Seta DIREITA   ->  move o tanque para a direita
+  BARRA DE ESPACO->  dispara com o canhao
+                     (o tiro segue a direcao em que o tanque esta virado)
+
+
+ALTERACOES REALIZADAS EM RELACAO AO PROJETO ORIGINAL
+------------------------------------------------------------------------
+A LOGICA principal foi mantida (mover com as setas, guardar a direcao e
+atirar na direcao atual). As mudancas foram, principalmente, visuais e
+de ajuste de valores:
+
+1) Personagem (heroi.js -> tanque.js)
+   - De um retangulo preto 20x50 para um tanque desenhado (96x60).
+   - Cores em tons militares (verde-oliva, esteiras escuras).
+   - Canhao que aponta para a esquerda ou para a direita conforme a
+     direcao do movimento.
+   - Clarao (flash) na boca do canhao ao disparar.
+   - Velocidade de movimento alterada de 10 para 6 (mais controlada).
+
+2) Disparo (bola.js -> projetil.js)
+   - De uma bolinha vermelha (raio 2) para um obus alaranjado com nariz
+     apontado na direcao do tiro e rastro luminoso.
+   - Velocidade do disparo alterada de 20 para 15.
+   - O projetil se remove sozinho ao sair da tela.
+
+3) Cenario (novo: cenario.js)
+   - Fundo de campo de batalha (ceu, sol, nuvens em movimento, colinas e
+     solo do deserto) no lugar da tela em branco.
+
+4) Animacao (animacao.js)
+   - Mantida a estrutura original; foi acrescentada a remocao dos sprites
+     que saem da tela (evita a lista de sprites crescer para sempre).
+
+5) Teclado (teclado.js)
+   - Mantida a estrutura original; foi acrescentado o preventDefault nas
+     teclas do jogo para a pagina nao rolar durante a partida.
+
+6) Area do jogo (index.html + css/estilo.css)
+   - Canvas ampliado de 500x500 para 900x480.
+   - Posicao inicial do tanque personalizada (x = 60, apoiado no solo).
+   - Pagina estilizada com titulo, moldura do campo e painel de comandos.
+
+
+ESTRUTURA DE ARQUIVOS
+------------------------------------------------------------------------
+  index.html            -> pagina principal (abrir esta no navegador)
+  css/estilo.css        -> aparencia da pagina
+  js/teclado.js         -> leitura do teclado
+  js/animacao.js        -> laco de animacao (game loop)
+  js/cenario.js         -> fundo do campo de batalha
+  js/tanque.js          -> o personagem (tanque) que anda e atira
+  js/projetil.js        -> o disparo (obus)
+  LEIA-ME.txt           -> este arquivo
+========================================================================
