@@ -1,7 +1,3 @@
-/* ============================================================
-   estilo.css  -  Aparência da página (personalização visual)
-   ============================================================ */
-
 * {
    box-sizing: border-box;
 }
@@ -41,7 +37,6 @@ body {
    letter-spacing: 1px;
 }
 
-/* Moldura do campo de batalha */
 .moldura {
    padding: 10px;
    border-radius: 10px;
@@ -57,10 +52,9 @@ body {
    max-width: 100%;
    height: auto;
    border-radius: 6px;
-   background: #7fa0b0; /* cor de reserva enquanto o cenário não desenha */
+   background: #7fa0b0;
 }
 
-/* Painel de comandos */
 .comandos {
    display: flex;
    flex-wrap: wrap;
