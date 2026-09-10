@@ -17,13 +17,11 @@
 
 <body>
 
+   <canvas id="campoDeBatalha"></canvas>
+
    <div class="titulo">
       <h1>Tanque de Guerra</h1>
       <p>Movimente-se pelo campo de batalha e dispare com o canhão</p>
-   </div>
-
-   <div class="moldura">
-      <canvas id="campoDeBatalha" width="900" height="480"></canvas>
    </div>
 
    <div class="rodape">
@@ -42,8 +40,21 @@
 
       var tanque = new Tanque(context, teclado, animacao);
       tanque.x = 60;
-      tanque.y = cenario.chaoY - 50;
       animacao.novoSprite(tanque);
+
+      function ajustarTela() {
+         canvas.width  = window.innerWidth;
+         canvas.height = window.innerHeight;
+
+         cenario.chaoY = Math.round(canvas.height * 0.775);
+         tanque.y = cenario.chaoY - 50;
+
+         var limiteDireita = canvas.width - tanque.largura - tanque.margem;
+         if (tanque.x > limiteDireita) tanque.x = limiteDireita;
+      }
+
+      ajustarTela();
+      window.addEventListener('resize', ajustarTela);
 
       teclado.disparou(ESPACO, function() {
          tanque.atirar();

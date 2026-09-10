@@ -19,8 +19,8 @@ O retangulo preto do exercicio original foi substituido por um tanque
 desenhado no proprio canvas (esteiras com rodas, casco, torre, escotilha
 e canhao). O canhao aponta para o lado em que o tanque esta virado, e o
 disparo e um projetil de artilharia (obus) com rastro luminoso. O cenario
-de fundo mostra um campo de batalha (ceu com sol, nuvens que se movem,
-colinas ao fundo e solo de deserto com pedras e tufos de mato).
+de fundo mostra um campo de batalha (ceu com sol, nuvens, colinas ao fundo
+e solo de deserto com pedras e tufos de mato).
 
 
 COMANDOS UTILIZADOS
@@ -52,8 +52,8 @@ de ajuste de valores:
    - O projetil se remove sozinho ao sair da tela.
 
 3) Cenario (novo: cenario.js)
-   - Fundo de campo de batalha (ceu, sol, nuvens em movimento, colinas e
-     solo do deserto) no lugar da tela em branco.
+   - Fundo de campo de batalha (ceu, sol, nuvens, colinas e solo do
+     deserto) no lugar da tela em branco. As nuvens sao estaticas.
 
 4) Animacao (animacao.js)
    - Mantida a estrutura original; foi acrescentada a remocao dos sprites
@@ -64,9 +64,10 @@ de ajuste de valores:
      teclas do jogo para a pagina nao rolar durante a partida.
 
 6) Area do jogo (index.html + css/estilo.css)
-   - Canvas ampliado de 500x500 para 900x480.
+   - O jogo ocupa a tela inteira: o canvas se ajusta ao tamanho da janela
+     (inclusive ao redimensionar), no lugar do 500x500 original.
    - Posicao inicial do tanque personalizada (x = 60, apoiado no solo).
-   - Pagina estilizada com titulo, moldura do campo e painel de comandos.
+   - Pagina estilizada com o titulo sobre a tela.
 
 
 ESTRUTURA DE ARQUIVOS
