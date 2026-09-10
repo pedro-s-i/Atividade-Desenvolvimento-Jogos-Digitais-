@@ -67,7 +67,7 @@ de ajuste de valores:
    - O jogo ocupa a tela inteira: o canvas se ajusta ao tamanho da janela
      (inclusive ao redimensionar), no lugar do 500x500 original.
    - Posicao inicial do tanque personalizada (x = 60, apoiado no solo).
-   - Pagina estilizada com o titulo sobre a tela.
+   - A pagina mostra somente o campo de batalha em tela cheia.
 
 
 ESTRUTURA DE ARQUIVOS
